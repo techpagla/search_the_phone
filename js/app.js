@@ -27,6 +27,7 @@ function displayData(phones) {
         noPhone.classList.remove('d-none');
     } else {
         noPhone.classList.add('d-none');
+
     }
 
     const phoneRapper = document.getElementById('phones-rapper');
@@ -51,19 +52,16 @@ function displayData(phones) {
             <img src="${phone.image}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">${phone.phone_name}</h5>
-                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <button onclick="loadDetails('${phone.slug}')" href="#" class="btn btn-primary" >Show Details</button>
+                <h6 class="card-title">${phone.brand}</h6>
+                <h5 class="card-title">${phone.brand}</h5>
+                <p class="card-text">This is an amazing phone. Now a days it is very familier with its specifications</p>
+                <button onclick="loadDetails('${phone.slug}')" href="#" class="btn btn-primary" >See Specifications</button>
             </div>
         </div>
         `;
-
             phoneRapper.appendChild(div);
-
         }
         document.getElementById('show-all').classList.add('d-none');
-
-
-
     });
 
     for (phone of phones.slice(-x)) {
@@ -73,9 +71,10 @@ function displayData(phones) {
           <div class="card p-4">
           <img src="${phone.image}" class="card-img-top" alt="...">
           <div class="card-body">
-              <h5 class="card-title">${phone.phone_name}</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <button onclick="loadDetails('${phone.slug}')" href="#" class="btn btn-primary" >Show Details</button>
+          <h5 class="card-title">${phone.phone_name}</h5>
+          <h6 class="card-title">Brand: ${phone.brand}</h6>
+          <p class="card-text">This is an amazing phone. Now a days it is very familier with its specifications</p>
+              <button onclick="loadDetails('${phone.slug}')" href="#" class="btn btn-primary" >See Specifications</button>
           </div>
       </div>
           `;
@@ -104,7 +103,7 @@ const phoneDetails = details => {
     <div class='card-body'>
       <h5 class='card-title'>Name: ${details.name}</h5>
       <h6 class='card-title'>Brand: ${details.brand}</h6>
-      <h6 class='card-title'>Release Date: ${details.releaseDate}</h6>
+      <h6 class='card-title'>Release Date: ${details.releaseDate ? details.releaseDate : 'Coming soon'}</h6>
       <h6 class='card-title'>Chipset: ${details.mainFeatures.chipSet}</h6>
       <h6 class='card-title'>Display Size: ${details.mainFeatures.displaySize}</h6>
       <h6 class='card-title'>Storage: ${details.mainFeatures.storage}</h6>
