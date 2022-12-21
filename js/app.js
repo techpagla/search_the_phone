@@ -47,22 +47,21 @@ function  displayData(phones) {
     document.getElementById('btn-show-all').addEventListener("click", function() {
       phoneRapper.textContent = '';
       var x = 1000;
-           for( item of phones.slice(-x)) {
+           for( phone of phones.slice(-x)) {
           const div = document.createElement('div');
           div.classList.add('col', 'dibba');
           div.innerHTML = `
-          <div class='card h-50'id='card-container'>
-          <img src='${item.image}' class='card-img-top' alt='...'>
-          <div class='card-body'>
-            <h5 class='card-title'>${item.phone_name}</h5>
-            <h6 class='card-title'>Brand: ${item.brand}</h6>
-            <button href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal" onclick="loadDetails('${item.slug}')"> Show Details</button>
-              
-          </div>
+          <div class="card p-4">
+            <img src="${phone.image}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${phone.phone_name}</h5>
+                <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <button onclick="loadPhoneDetails('${phone.slug}')" href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal">Show Details</button>
+            </div>
         </div>
-          `;
-          phoneRapper.appendChild(div);
+        `;
           
+          phoneRapper.appendChild(div);
           
            }
            document.getElementById('show-all').classList.add('d-none');
