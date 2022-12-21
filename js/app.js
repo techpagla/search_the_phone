@@ -31,27 +31,69 @@ function  displayData(phones) {
         }
 
     const phoneRapper = document.getElementById('phones-rapper');
-    // phoneRapper.textContent = '';
-        for( item of phones.slice(-10)) {
-        const div = document.createElement('div');
-        div.classList.add('col', 'dibba');
-        div.innerHTML = `
-        <div class='card h-50'id='card-container'>
-        <img src='${item.image}' class='card-img-top' alt='...'>
-        <div class='card-body'>
-          <h5 class='card-title'>${item.phone_name}</h5>
-          <h6 class='card-title'>Brand: ${item.brand}</h6>
-          <button href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal" onclick="loadDetails('${item.slug}')"> Show Details</button>
-            
+    phoneRapper.textContent = '';
+    console.log(phones.length);
+    if (phones.length > 10) {
+      var x = 10;
+      document.getElementById('show-all').classList.remove('d-none');
+      
+      
+    }
+    else {
+      document.getElementById('show-all').classList.add('d-none');
+
+      
+    }
+    document.getElementById('btn-show-all').addEventListener("click", function() {
+      phoneRapper.textContent = '';
+      var x = 1000;
+           for( item of phones.slice(-x)) {
+          const div = document.createElement('div');
+          div.classList.add('col', 'dibba');
+          div.innerHTML = `
+          <div class='card h-50'id='card-container'>
+          <img src='${item.image}' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5 class='card-title'>${item.phone_name}</h5>
+            <h6 class='card-title'>Brand: ${item.brand}</h6>
+            <button href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal" onclick="loadDetails('${item.slug}')"> Show Details</button>
+              
+          </div>
         </div>
-      </div>
-        `;
-        phoneRapper.appendChild(div);
-        if (item.length === 0) {
-          break;
-        }
-    } 
+          `;
+          phoneRapper.appendChild(div);
+          if (item.length === 0) {
+            break;
+          }
+          
+           }
+           document.getElementById('show-all').classList.add('d-none');
+
+           
+     
+    });
+   
+        for( item of phones.slice(-x)) {
+          const div = document.createElement('div');
+          div.classList.add('col', 'dibba');
+          div.innerHTML = `
+          <div class='card h-50'id='card-container'>
+          <img src='${item.image}' class='card-img-top' alt='...'>
+          <div class='card-body'>
+            <h5 class='card-title'>${item.phone_name}</h5>
+            <h6 class='card-title'>Brand: ${item.brand}</h6>
+            <button href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phoneDetailModal" onclick="loadDetails('${item.slug}')"> Show Details</button>
+              
+          </div>
+        </div>
+          `;
+          phoneRapper.appendChild(div);
+          if (item.length === 0) {
+            break;
+          }
+           }
 }
+
 
 //Load details of clicked phones
 const loadDetails = async id => {

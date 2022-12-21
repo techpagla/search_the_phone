@@ -17,14 +17,12 @@
                 <input id="input-text" type="text" class="form-control" placeholder="Search by food name" aria-label="Recipient's username" aria-describedby="button-addon2">
                 <button onclick="getTextData()" class="btn btn-outline-secondary" type="button" id="search-btn">Search</button>
             </div>
-            
+
     <!-- No phone message -->
             <div id="no-found-message" class="mt-4 d-none">
                 <h3 class="text-warning">No Phone Found. Please try a new search</h3>
             </div>
-            <div id="show-all" class="text-left d-none">
-                <button id="btn-show-all" class="btn btn-secondary">Show All Results</button>
-            </div>
+       
         
     <!-- phone details -->
             <div id="phonedetails" class="w-50 mx-auto"> 
@@ -32,6 +30,11 @@
 
     <!-- Card  -->
         <div id="phones-rapper" class="row row-cols-1 row-cols-md-3 g-4"> </div>
+    
+     <!-- Show All phone     -->
+     <div id="show-all" class="text-center d-none mt-5 mb-3">
+        <button id="btn-show-all" class="btn btn-secondary" >Show All Results</button>
+    </div>    
 
     </section>
 
