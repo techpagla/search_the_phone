@@ -9,7 +9,6 @@ const  getTextData = () =>  {
     fetch(url)
     .then(res => res.json())
     .then ( data => displayData(data.data));
-
 }
 
 //make the field blank
@@ -20,11 +19,8 @@ const makeBlank = (searchValue) => {
   
 }
 
-
 //Display the phones according to the seach value
-
 function  displayData(phones) {
-
         // display no phones found
         const noPhone = document.getElementById('no-found-message');
         if(phones.length === 0){
@@ -54,8 +50,6 @@ function  displayData(phones) {
         if (item.length === 0) {
           break;
         }
-        
-
     } 
 }
 
@@ -73,23 +67,6 @@ const loadDetails = async id => {
 const phoneDetails = details => {
     console.log(details);
     const div = document.getElementById('phonedetails');
-    var modal = document.getElementById('phone-details');
-    modal.innerHTML = `
-    <div class='card mb-5' style='width: 30rem;'>
-    <img class='card-img-top' src='${details.image}' alt='Card image cap'>
-    <div class='card-body'>
-      <h5 class='card-title'>Name: ${details.name}</h5>SS
-      <h6 class='card-title'>Brand: ${details.brand}</h6>
-      <h6 class='card-title'>Release Date: ${details.releaseDate ? details.releaseDate : 'No Release Date Found'}}</h6>
-      <h6 class='card-title'>Chipset: ${details.mainFeatures.chipSet}</h6>
-      <h6 class='card-title'>Display Size: ${details.mainFeatures.displaySize}</h6>
-      <h6 class='card-title'>Storage: ${details.mainFeatures.storage}</h6>
-      <h6 class='card-title'>Sensors: ${details.mainFeatures.sensors}</h6>
-      
-    </div>
-  </div> 
-    `;
-
     div.innerHTML = `
     <div class='card mb-5' style='width: 30rem;'>
     <img class='card-img-top' src='${details.image}' alt='Card image cap'>
