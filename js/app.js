@@ -62,9 +62,7 @@ function  displayData(phones) {
         </div>
           `;
           phoneRapper.appendChild(div);
-          if (item.length === 0) {
-            break;
-          }
+          
           
            }
            document.getElementById('show-all').classList.add('d-none');
@@ -88,9 +86,7 @@ function  displayData(phones) {
         </div>
           `;
           phoneRapper.appendChild(div);
-          if (item.length === 0) {
-            break;
-          }
+          
            }
 }
 
